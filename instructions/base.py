@@ -12,9 +12,10 @@ class InstructionBase(object):
     @search_string.setter
     def search_string(self, value):
         if value.startswith(self.INSTRUCTION):
-            self._search_string = value[(len(self.INSTRUCTION) + 1):]
+            temp = value[(len(self.INSTRUCTION) + 1):]
         else:
-            self._search_string = value
+            temp = value
+        self._search_string = temp.replace("\\n", "\n")
 
     def __str__(self):
         return self.INSTRUCTION + " " + self.search_string
