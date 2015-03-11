@@ -26,7 +26,7 @@ class ScriptRunner(object):
                         (extra_instruction, extra_branch) = ilist.__next__()
             if "restart" in [instruction.AFTER, result]:
                 ilist.reset()
-                collector.finalise_group()
+                collector.new_group()
                 if depth > 0:
                     return "restart"
         return True

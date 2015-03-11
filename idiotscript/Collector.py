@@ -9,7 +9,7 @@ class Collector(object):
             self._groups.append(self._current_group)
         self._current_group.append(new_input)
 
-    def finalise_group(self):
+    def new_group(self):
         self._current_group = None
 
     @property
