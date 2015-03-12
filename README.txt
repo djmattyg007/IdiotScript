@@ -40,3 +40,10 @@ newline characters in your scripts. Instances of '\n' will be
 converted to actual newline characters when the script is parsed.
 
 This software is released into the public domain without any warranty.
+
+TODO
+
+- Document the _run method in the default script runner class better.
+  Also see if it can be made to feel less hacky (I'm still not sure
+  about the depth parameter).
+- Actually write an example script to demo the functionality.
