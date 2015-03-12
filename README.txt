@@ -35,6 +35,15 @@ pluggable is that you can throw out the built-in instructions and use
 your own instruction set. If you want if/elseif statements that move
 the pointer, you can do just that.
 
+A small but important change is how output is collected and presented.
+In mooshmoosh's version, it is assumed that you will always want the
+output in CSV format. In this version, you can take the data put into
+the collector (which you pass to the script runner to collect input
+for you), and format it however you wish. Two default formatters are
+provided: the CSV formatter, which behaves identically to mooshmoosh's
+implementation, and the Newline formatter, which separates each input
+by a newline character, and each input group with another newline.
+
 Finally, there's a small hack in place to allow you to represent
 newline characters in your scripts. Instances of '\n' will be
 converted to actual newline characters when the script is parsed.
