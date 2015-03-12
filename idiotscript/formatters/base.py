@@ -1,0 +1,2 @@
+class FormatterBase(object):
+    pass
