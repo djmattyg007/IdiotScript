@@ -7,6 +7,9 @@ class SearchPastInstruction(InstructionBase):
         if offset == inputcontainer.EOF:
             return (inputcontainer.EOF, False)
         else:
+            # We need to add the length of the text being searched
+            # for, as we want to move the pointer past the search
+            # string.
             inputcontainer.move_pointer(offset + len(self.search_string))
             return (None, False)
 
@@ -25,6 +28,9 @@ class CopyTillWithInstruction(InstructionBase):
     def run(self, inputcontainer):
         text = self._copy(inputcontainer)
         if not inputcontainer.iseof():
+            # We need to advance the pointer past the text being
+            # searched for manually, and add that text to the
+            # return value as well.
             inputcontainer.move_pointer(len(self.search_string))
             text += self.search_string
         return (text, False)

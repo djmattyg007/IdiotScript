@@ -2,7 +2,16 @@ from .base import FormatterBase
 import csv
 
 class CsvFormatter(FormatterBase):
+    '''
+    Each item in a group is an individual cell in a single
+    CSV row. Each group is its own CSV row.
+    '''
     def format(self, collector):
+        '''
+        csv.writer and csv.reader expect to deal only with
+        IO objects, so we need to use StringIO, which wraps
+        a string in an IO object, and then capture the output.
+        '''
         from io import StringIO
         io_obj = StringIO()
         self._format(collector, io_obj)

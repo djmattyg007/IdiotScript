@@ -1,4 +1,10 @@
 class InstructionList(object):
+    '''
+    An instruction list is the result of parsing an
+    idiotscript script. It may have nested instruction
+    lists, which is the result of branching in the
+    idiotscript. This implementation uses a linked list.
+    '''
     def __init__(self):
         self._head = None
         self._tail = None
@@ -20,6 +26,10 @@ class InstructionList(object):
 
     @staticmethod
     def str_ilist(ilist, depth = 0):
+        '''
+        Pretty-prints an instruction list, representing branches
+        with indented lines.
+        '''
         temp = ""
         for instruction, branch in ilist:
             temp += "  " * depth
@@ -33,6 +43,11 @@ class InstructionList(object):
         return self
 
     def __next__(self):
+        '''
+        Returns a tuple containing the current instruction,
+        and a nested instruction list (the branch) if it is
+        a branching instruction.
+        '''
         if self._current is None:
             raise StopIteration
         instruction = self._current.instruction
@@ -41,6 +56,11 @@ class InstructionList(object):
         return (instruction, branch)
 
     def reset(self):
+        '''
+        In order to support the "repeat" instruction, it
+        is necessary to be able to manually reset the iterator
+        back to the start of the instruction list.
+        '''
         self._current = self._head
 
     class Node(object):
