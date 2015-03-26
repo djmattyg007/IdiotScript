@@ -55,4 +55,4 @@ TODO
 - Document the _run method in the default script runner class better.
   Also see if it can be made to feel less hacky (I'm still not sure
   about the depth parameter).
-- Actually write an example script to demo the functionality.
+- Write tests
