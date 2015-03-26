@@ -2,6 +2,9 @@ IdiotScript
 
 This is a python port of https://github.com/mooshmoosh/IdiotScript
 
+You can install it through the AUR:
+https://aur.archlinux.org/packages/python-idiotscript
+
 Three sentence description
 Like mooshmoosh, I also have great difficulty remembering how to use
 regular expressions. However, python is my choice of language. Now
