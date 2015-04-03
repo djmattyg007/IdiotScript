@@ -4,11 +4,11 @@ import os, sys
 
 if len(sys.argv) < 2 or len(sys.argv) > 3:
     print("Invalid number of arguments.")
-    quit()
+    sys.exit()
 
 if os.path.isfile(sys.argv[1]) == False:
     print("IdiotScript program does not exist.")
-    quit()
+    sys.exit()
 
 
 import io
@@ -43,22 +43,11 @@ with open(sys.argv[1]) as program_file:
     program = program_file.read()
 
 my_ilist = parser.parse(program)
-#my_ilist = parser.parse("search past App.bootstrapData(\ncopy up till );");
-
-#my_ilist = parser.parse("search past haha\nif you find blah\ncopy up till rofl\ncopy till with rofl\nif you find hurrah\ncopy up till beep\nor if you find huzzah\nsearch past beep\nthen\notherwise\ncopy till with snakeoil\nthen\nrepeat")
-#print(my_ilist)
-
-#with open("/tmp/rofl.html") as roflfile:
-#    inputtext = roflfile.read()
 inputtext = get_input()
 
 my_collector = Collector()
 runner = ScriptRunner(InputContainer(inputtext))
 runner.run(my_ilist, my_collector)
 
-newline = formatters.NewlineFormatter()
-print(newline.format(my_collector))
-#print("#####")
-
-#csv = formatters.CsvFormatter()
-#print(csv.format(my_collector))
+nl_formatter = formatters.NewlineFormatter()
+print(nl_formatter.format(my_collector))
