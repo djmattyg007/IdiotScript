@@ -8,9 +8,9 @@ class CsvFormatter(FormatterBase):
     '''
     def format(self, collector):
         '''
-        csv.writer and csv.reader expect to deal only with
-        IO objects, so we need to use StringIO, which wraps
-        a string in an IO object, and then capture the output.
+        csv.writer expects to deal only with IO objects, so
+        we need to use StringIO, which wraps a string in an
+        IO object, and then capture the output.
         '''
         from io import StringIO
         io_obj = StringIO()
