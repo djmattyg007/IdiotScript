@@ -2,6 +2,15 @@
 
 import os, sys
 
+def alter_path():
+    script_path = os.path.dirname(os.path.realpath(__file__))
+    try:
+        path_index = sys.path.index(script_path)
+    except ValueError:
+        return
+    sys.path.pop(path_index)
+alter_path()
+
 if len(sys.argv) < 2 or len(sys.argv) > 3:
     print("Invalid number of arguments.")
     sys.exit()
