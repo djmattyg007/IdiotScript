@@ -59,3 +59,4 @@ TODO
   Also see if it can be made to feel less hacky (I'm still not sure
   about the depth parameter).
 - Write tests
+- Add parameter to example script to allow customising formatters
